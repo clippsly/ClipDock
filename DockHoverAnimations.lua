@@ -1,5 +1,6 @@
 -- Get references to the Dock frame and its children
 local dock = script.Parent.Parent.DockShelf.Dock
+local click = script.Click
 local buttons = {}
 
 for _, child in ipairs(dock:GetChildren()) do
@@ -31,6 +32,7 @@ local function onButtonEnter(button)
 		Size = UDim2.new(button.Size.X.Scale * magnificationScale, button.Size.X.Offset, 
 			button.Size.Y.Scale * magnificationScale, button.Size.Y.Offset)
 	})
+	click:Play()
 	sizeTween:Play()
 
 	local positionTweenInfo = TweenInfo.new(tweenDuration, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
